@@ -1,9 +1,9 @@
 {
-  "name": "modulo02-semana03",
+  "name": "aula-base",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev" : "ts-node-dev --respawn --transpile-only src/exercicio01.ts"
+    "dev" : "ts-node-dev --respawn --transpile-only index.ts"
   },
   "keywords": [],
   "author": "",

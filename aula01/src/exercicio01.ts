@@ -1,32 +1,47 @@
+const listaLivros: Array<{
+  titulo: string;
+  autor: string;
+  anoPublicacao: Date;
+  categorias: string[];
+  disponivel: boolean;
+}> = []
+
+const listaAutores: Array<{
+  nome: string;
+  dataNascimento: Date;
+  livrosEscritos: Array<string>;
+}> = []
+
+
 enum Categorias {
-    Ficcao = "Ficção",
-    NaoFiccao = "Não Ficção",
-    Cientifico = "Cintífico",
-    Programacao = "Programação",
-  }
+  Ficcao = "Ficção",
+  NaoFiccao = "Não Ficção",
+  Cientifico = "Cintífico",
+  Programacao = "Programação",
+}
   
-  const livro: {
-    titulo: string;
-    autor: string;
-    anoPublicacao: Date;
-    categorias: string[];
-    disponivel: boolean;
-  } = {
-    titulo: "Aprendendo Algoritmos",
-    autor: "Frank",
-    anoPublicacao: new Date("1980-12-10"),
-    categorias: [Categorias.Programacao, Categorias.Cientifico],
-    disponivel: true,
-  };
+function adicionarLivro(titulo: string, autor: string, anoPublicacao: Date, categorias: Array<string>, disponivel: boolean = true): void {
+  listaLivros.push({
+    titulo: titulo,
+    autor: autor,
+    anoPublicacao: anoPublicacao,
+    categorias: categorias,
+    disponivel: disponivel,
+  });
+}
   
-  console.log(livro.categorias[0]);
-  
-  const autor: {
-    nome: string;
-    dataNascimento: Date;
-    livrosEscritos: Array<string>;
-  } = {
-    nome: "Frank",
-    dataNascimento: new Date("1950-10-08"),
-    livrosEscritos: ["O poderoso Frank", "O fraco Frank", "O mediano Frank"],
-  };
+
+function adicionarAutor(nome: string, dataNascimento: Date, livrosEscritos: Array<string>): void {
+  listaAutores.push({
+    nome: nome,
+    dataNascimento: dataNascimento,
+    livrosEscritos: livrosEscritos,
+  });
+}
+
+adicionarLivro("Livro do Frank", "Frank", new Date("2024-11-25"), [Categorias.Programacao, Categorias.NaoFiccao])
+adicionarLivro("Livro do Frank 2", "Frank", new Date("2024-11-26"), [Categorias.Programacao, Categorias.Cientifico], false)
+adicionarAutor("Frank", new Date("1990-11-25"), ["Livro do Frank"])
+
+console.log(listaLivros)
+console.log(listaAutores)
