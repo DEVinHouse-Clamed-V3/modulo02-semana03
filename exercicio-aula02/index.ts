@@ -1,5 +1,9 @@
-import Pessoa from "./classes/pessoa"
+import Pedido from "./classes/pedido";
 
-const brunoPessoa = new Pessoa("Bruno", 65, "12345679812");
-// brunoPessoa.cpf = "46579813221"
-brunoPessoa.apresentar()
+const pedido1 = new Pedido("Bruno", "Lasanha", "Sorvete", 15)
+const pedido2 = new Pedido("Gustavo", "Churrasco")
+const pedido3 = new Pedido("Alex", "Peixe", undefined, 5)
+
+console.log(pedido1.detalhesPedido())
+console.log(pedido2.detalhesPedido())
+console.log(pedido3.detalhesPedido())
