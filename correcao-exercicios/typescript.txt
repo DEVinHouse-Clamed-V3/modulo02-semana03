@@ -1,7 +1,8 @@
+-- comandos do terminal
 npm install typescript @types/node ts-node-dev -D
 npx tsc --init
 
--- package.json
+-- package.json | alterar scripts
 "dev" : "ts-node-dev --respawn --transpile-only index.ts"
 
 -- tsconfig.json
