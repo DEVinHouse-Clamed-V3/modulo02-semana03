@@ -1,0 +1,17 @@
+npm install typescript @types/node ts-node-dev -D
+npx tsc --init
+
+-- package.json
+"dev" : "ts-node-dev --respawn --transpile-only index.ts"
+
+-- tsconfig.json
+{
+  "compilerOptions": {
+    "lib": ["ES2023"],
+    "module": "Node16",
+    "target": "ES2022",   
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true                
+  }
+}
