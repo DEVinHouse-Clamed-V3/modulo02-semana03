@@ -11,9 +11,19 @@ abstract class ContaBancaria {
         this.conta = contaP;
     }
 
-    abstract sacar(valor: number): void;
+    abstract sacar(valor: number): boolean;
     abstract deposito(valor: number): void;
-    abstract transferir(conta: ContaBancaria, valor: number): void;
+    abstract mostrarExtrato(): void;
+
+    transferir(conta: ContaBancaria, valor: number): void {
+        if(this.sacar(valor)){
+            conta.deposito(valor);
+            console.log(`Transferência para ${conta.nomeTitular} realizada com sucesso!`)
+            return
+        }
+
+        console.log("Não foi possível realizar a transferência!")
+    }
 }
 
 export default ContaBancaria;

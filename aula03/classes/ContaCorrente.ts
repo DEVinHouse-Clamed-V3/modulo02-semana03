@@ -12,20 +12,24 @@ class ContaCorrente extends ContaBancaria {
 
     deposito(valor: number): void{
         this.saldo = Calculadora.somar(valor, this.saldo)
+        console.log(`Depósito de R$ ${valor} realizado com sucesso.`)
     }
 
-    sacar(valor: number): void {
+    sacar(valor: number): boolean {
         if(valor > this.saldo){
             console.log("Saldo insuficiente!")
-            return
+            return false
         }
 
-        this.saldo = Calculadora.subtrair(this.saldo, valor)
+        let taxa = valor * this.taxaCesta / 100
+
+        this.saldo = Calculadora.subtrair(this.saldo, valor + taxa)
+        console.log(`Saque de R$ ${valor} realizado com sucesso.`)
+        return true
     }
 
-    transferir(conta: ContaBancaria, valor: number): void {
-        this.sacar(valor);
-        conta.deposito(valor);
+    mostrarExtrato(){
+        console.log(`Seu saldo atual é de R$ ${this.saldo.toFixed(2)}`)
     }
 }
 
